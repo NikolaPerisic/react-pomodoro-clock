@@ -8,7 +8,7 @@ class Pomodoro extends Component {
 	state = {
 		focusTime: 25,
 		breakTime: 15,
-		displayTime: "25:00",
+		displayTime: "24:59",
 		timer: null,
 		counter: 0,
 		isRunning: false,
@@ -35,6 +35,13 @@ class Pomodoro extends Component {
 			this.setState({ focusTime: value });
 		}
 	};
+	updateClock = () => {
+		const timeNow = this.state.displayTime;
+		const min = parseInt(timeNow.slice(0, 2));
+		const sec = parseInt(timeNow.slice(3));
+		const totalSec = min * 60 + sec;
+		console.log(totalSec);
+	};
 	render() {
 		return (
 			<div className={classes.Pomodoro}>
@@ -47,7 +54,10 @@ class Pomodoro extends Component {
 					clicked={this.updateBreakAndFocusTime}
 					focusTime={this.state.focusTime}
 				/>
-				<ClockComponent displayTime={this.state.displayTime} />
+				<ClockComponent
+					startTimer={this.updateClock}
+					displayTime={this.state.displayTime}
+				/>
 			</div>
 		);
 	}
