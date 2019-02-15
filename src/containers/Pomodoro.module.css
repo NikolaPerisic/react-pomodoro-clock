@@ -1,0 +1,10 @@
+.Pomodoro {
+	text-align: center;
+}
+.Header {
+	text-align: center;
+	height: 20% vh;
+	background-color: yellow;
+	font-size: 3rem;
+	width: 100%;
+}
