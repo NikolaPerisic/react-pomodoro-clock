@@ -6,52 +6,91 @@ import ClockComponent from "../components/ClockComponent/ClockComponent";
 
 class Pomodoro extends Component {
 	state = {
-		focusTime: 25,
-		breakTime: 15,
-		displayTime: "24:59",
+		focusTime: 1,
+		breakTime: 1,
+		displayTime: "00:20",
 		timer: null,
 		counter: 0,
 		isRunning: false,
 		isBreakTime: false
 	};
 	updateBreakAndFocusTime = (btn, type) => {
-		let value;
-		if (type === "break") {
-			value = this.state.breakTime;
-			if (btn === "less" && value > 1) {
-				value--;
-			} else if (btn === "more" && value < 25) {
-				value++;
+		if (!this.state.isRunning) {
+			let value;
+			if (type === "break") {
+				value = this.state.breakTime;
+				if (btn === "less" && value > 1) {
+					value--;
+				} else if (btn === "more" && value < 60) {
+					value++;
+				}
+				this.setState({ breakTime: value });
 			}
-			this.setState({ breakTime: value });
-		}
-		if (type === "focus") {
-			value = this.state.focusTime;
-			if (btn === "less" && value > 1) {
-				value--;
-			} else if (btn === "more" && value < 30) {
-				value++;
+			if (type === "focus") {
+				value = this.state.focusTime;
+				if (btn === "less" && value > 1) {
+					value--;
+				} else if (btn === "more" && value < 60) {
+					value++;
+				}
+				let newDisplayTime = this.displayTimeFormatter(value * 60);
+				this.setState({ focusTime: value, displayTime: newDisplayTime });
 			}
-			this.setState({ focusTime: value });
 		}
+	};
+	displayTimeFormatter = num => {
+		let newMin = String(Math.floor(num / 60));
+		let newSec = String(num % 60);
+		if (newMin.length === 1) {
+			newMin = "0" + newMin;
+		}
+		if (newSec.length === 1) {
+			newSec = "0" + newSec;
+		}
+		console.log(`${newMin}:${newSec}`);
+		return `${newMin}:${newSec}`;
 	};
 	updateClock = () => {
 		const timeNow = this.state.displayTime;
 		const min = parseInt(timeNow.slice(0, 2));
 		const sec = parseInt(timeNow.slice(3));
 		let totalSec = min * 60 + sec;
-		console.log(totalSec);
 		totalSec--;
-		let newMin = Math.floor(totalSec / 60);
-		let newSec = totalSec % 60;
-		let newTime = `${newMin}:${newSec}`;
-		console.log(newTime);
-		this.setState({
-			displayTime: newTime
-		});
+		const newTime = this.displayTimeFormatter(totalSec);
+		if (this.state.displayTime === "00:00") {
+			clearInterval(this.state.timer);
+			if (!this.state.isBreakTime) {
+				let breakSwitch = this.displayTimeFormatter(this.state.breakTime * 60);
+				this.setState({
+					displayTime: breakSwitch,
+					isBreakTime: !this.state.isBreakTime,
+					isRunning: !this.state.isRunning
+				});
+				this.runningTimer();
+			} else {
+				let focusSwitch = this.displayTimeFormatter(this.state.focusTime * 60);
+				this.setState({
+					displayTime: focusSwitch,
+					isBreakTime: !this.state.isBreakTime,
+					isRunning: !this.state.isRunning
+				});
+				this.runningTimer();
+			}
+		} else {
+			this.setState({
+				displayTime: newTime
+			});
+		}
 	};
 	runningTimer = () => {
-		return setInterval(() => this.updateClock(), 1000);
+		const running = !this.state.isRunning;
+		this.setState({ isRunning: running });
+		if (running) {
+			let timer = setInterval(() => this.updateClock(), 1000);
+			this.setState({ timer: timer });
+		} else {
+			clearInterval(this.state.timer);
+		}
 	};
 
 	render() {
