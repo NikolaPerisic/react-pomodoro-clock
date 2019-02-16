@@ -39,9 +39,21 @@ class Pomodoro extends Component {
 		const timeNow = this.state.displayTime;
 		const min = parseInt(timeNow.slice(0, 2));
 		const sec = parseInt(timeNow.slice(3));
-		const totalSec = min * 60 + sec;
+		let totalSec = min * 60 + sec;
 		console.log(totalSec);
+		totalSec--;
+		let newMin = Math.floor(totalSec / 60);
+		let newSec = totalSec % 60;
+		let newTime = `${newMin}:${newSec}`;
+		console.log(newTime);
+		this.setState({
+			displayTime: newTime
+		});
 	};
+	runningTimer = () => {
+		return setInterval(() => this.updateClock(), 1000);
+	};
+
 	render() {
 		return (
 			<div className={classes.Pomodoro}>
@@ -55,7 +67,7 @@ class Pomodoro extends Component {
 					focusTime={this.state.focusTime}
 				/>
 				<ClockComponent
-					startTimer={this.updateClock}
+					startTimer={this.runningTimer}
 					displayTime={this.state.displayTime}
 				/>
 			</div>
