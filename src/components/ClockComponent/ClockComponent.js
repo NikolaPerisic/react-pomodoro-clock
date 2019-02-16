@@ -9,6 +9,7 @@ const clockComponent = props => {
 			</div>
 			<div>
 				<button onClick={props.startTimer}>Start/Stop</button>
+				<button onClick={props.reset}>Reset</button>
 			</div>
 		</div>
 	);

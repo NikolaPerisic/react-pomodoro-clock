@@ -3,17 +3,22 @@ import classes from "./Pomodoro.module.css";
 import BreakComponent from "../components/BreakComponent/BreakComponent";
 import FocusComponent from "../components/FocusComponent/FocusComponent";
 import ClockComponent from "../components/ClockComponent/ClockComponent";
+import SoundComponent from "../components/SoundComponent/SoundComponent";
+
+const INITIAL_STATE = {
+	focusTime: 25,
+	breakTime: 1,
+	displayTime: "00:10",
+	timer: null,
+	counter: 0,
+	isRunning: false,
+	isBreakTime: false,
+	alarmSound: false
+};
 
 class Pomodoro extends Component {
-	state = {
-		focusTime: 1,
-		breakTime: 1,
-		displayTime: "00:20",
-		timer: null,
-		counter: 0,
-		isRunning: false,
-		isBreakTime: false
-	};
+	state = { ...INITIAL_STATE };
+
 	updateBreakAndFocusTime = (btn, type) => {
 		if (!this.state.isRunning) {
 			let value;
@@ -59,6 +64,9 @@ class Pomodoro extends Component {
 		const newTime = this.displayTimeFormatter(totalSec);
 		if (this.state.displayTime === "00:00") {
 			clearInterval(this.state.timer);
+			this.setState({ alarmSound: true });
+			this.resetAlarmState();
+
 			if (!this.state.isBreakTime) {
 				let breakSwitch = this.displayTimeFormatter(this.state.breakTime * 60);
 				this.setState({
@@ -92,6 +100,17 @@ class Pomodoro extends Component {
 			clearInterval(this.state.timer);
 		}
 	};
+	resetTimer = () => {
+		clearInterval(this.state.timer);
+		this.setState({ ...INITIAL_STATE });
+	};
+	resetAlarmState = () => {
+		if (this.state.alarmSound) {
+			setInterval(() => {
+				this.setState({ alarmSound: false });
+			}, 10000);
+		}
+	};
 
 	render() {
 		return (
@@ -108,7 +127,9 @@ class Pomodoro extends Component {
 				<ClockComponent
 					startTimer={this.runningTimer}
 					displayTime={this.state.displayTime}
+					reset={this.resetTimer}
 				/>
+				<SoundComponent alarm={this.state.alarmSound} />
 			</div>
 		);
 	}
