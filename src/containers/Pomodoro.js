@@ -4,6 +4,7 @@ import BreakComponent from "../components/BreakComponent/BreakComponent";
 import FocusComponent from "../components/FocusComponent/FocusComponent";
 import ClockComponent from "../components/ClockComponent/ClockComponent";
 import SoundComponent from "../components/SoundComponent/SoundComponent";
+import InfoComponent from "../components/InfoComponent/InfoComponent";
 
 const INITIAL_STATE = {
 	focusTime: 25,
@@ -115,21 +116,27 @@ class Pomodoro extends Component {
 	render() {
 		return (
 			<div className={classes.Pomodoro}>
-				<header className={classes.Header}>Pomodoro Clock</header>
-				<BreakComponent
-					clicked={this.updateBreakAndFocusTime}
-					breakTime={this.state.breakTime}
-				/>
-				<FocusComponent
-					clicked={this.updateBreakAndFocusTime}
-					focusTime={this.state.focusTime}
-				/>
+				<header>Pomodoro Clock</header>
+				<div>
+					<BreakComponent
+						clicked={this.updateBreakAndFocusTime}
+						breakTime={this.state.breakTime}
+					/>
+					<FocusComponent
+						clicked={this.updateBreakAndFocusTime}
+						focusTime={this.state.focusTime}
+					/>
+				</div>
 				<ClockComponent
 					startTimer={this.runningTimer}
 					displayTime={this.state.displayTime}
 					reset={this.resetTimer}
 				/>
 				<SoundComponent alarm={this.state.alarmSound} />
+				<InfoComponent
+					breakStatus={this.state.isBreakTime}
+					stateRunning={this.state.isRunning}
+				/>
 			</div>
 		);
 	}

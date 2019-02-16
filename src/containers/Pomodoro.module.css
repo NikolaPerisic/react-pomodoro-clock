@@ -1,7 +1,17 @@
-.Pomodoro {
-	text-align: center;
+body {
+	background-color: antiquewhite;
 }
-.Header {
+
+.Pomodoro {
+	margin: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: stretch;
+	align-items: center;
+}
+.Pomodoro header {
 	text-align: center;
 	height: 20% vh;
 	background-color: yellow;

@@ -1,17 +1,20 @@
 import React from "react";
 import classes from "./ClockComponent.module.css";
+import Aux from "../../hoc/Aux";
 
 const clockComponent = props => {
 	return (
-		<div className={classes.Circle}>
-			<div className={classes.Clock}>
-				<p>{props.displayTime}</p>
+		<Aux>
+			<div className={classes.Circle}>
+				<div className={classes.Clock}>
+					<p>{props.displayTime}</p>
+				</div>
 			</div>
 			<div>
 				<button onClick={props.startTimer}>Start/Stop</button>
 				<button onClick={props.reset}>Reset</button>
 			</div>
-		</div>
+		</Aux>
 	);
 };
 

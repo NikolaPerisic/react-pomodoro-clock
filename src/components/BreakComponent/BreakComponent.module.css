@@ -1,0 +1,34 @@
+.Wrapper {
+	display: inline-flex;
+	padding: 2rem;
+}
+
+.MainDiv {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	background-color: transparent;
+	width: 200px;
+}
+.MainDiv p {
+	font-size: 1.5rem;
+}
+
+.Break {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.Break button {
+	display: block;
+	cursor: pointer;
+	width: 70px;
+	border-radius: 5px;
+	font-size: 0.8rem;
+}
+.Break p {
+	padding: 0 1rem;
+}
