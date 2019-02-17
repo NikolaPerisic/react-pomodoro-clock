@@ -13,3 +13,25 @@
 	color: blue;
 	font-size: 5rem;
 }
+
+button {
+	font-size: 2rem;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+@media (max-width: 540px) {
+	.Circle {
+		width: 200px;
+		height: 200px;
+	}
+	.Clock {
+		font-size: 3rem;
+	}
+	button {
+		font-size: 1.5rem;
+	}
+}

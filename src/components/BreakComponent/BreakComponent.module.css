@@ -26,9 +26,34 @@
 	display: block;
 	cursor: pointer;
 	width: 70px;
-	border-radius: 5px;
-	font-size: 0.8rem;
+	outline: none;
+	border: none;
+	font-size: 1.8rem;
+	background: transparent;
 }
 .Break p {
 	padding: 0 1rem;
+}
+
+.sessionIcons {
+	size: 2rem;
+	color: blue;
+}
+
+@media (max-width: 540px) {
+	.Wrapper,
+	.Break p {
+		padding: 0;
+	}
+	.MainDiv {
+		width: 100px;
+		padding: 1rem;
+	}
+	.MainDiv p {
+		font-size: 1rem;
+	}
+	.Break button {
+		width: 70px;
+		font-size: 1.5rem;
+	}
 }
