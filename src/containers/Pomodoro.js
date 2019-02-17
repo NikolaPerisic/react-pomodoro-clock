@@ -8,8 +8,8 @@ import InfoComponent from "../components/InfoComponent/InfoComponent";
 
 const INITIAL_STATE = {
 	focusTime: 25,
-	breakTime: 1,
-	displayTime: "00:10",
+	breakTime: 5,
+	displayTime: "25:00",
 	timer: null,
 	counter: 0,
 	isRunning: false,
@@ -53,7 +53,6 @@ class Pomodoro extends Component {
 		if (newSec.length === 1) {
 			newSec = "0" + newSec;
 		}
-		console.log(`${newMin}:${newSec}`);
 		return `${newMin}:${newSec}`;
 	};
 	updateClock = () => {
@@ -115,12 +114,17 @@ class Pomodoro extends Component {
 
 	render() {
 		return (
-			<div className={classes.Pomodoro}>
+			<div
+				className={
+					this.state.isBreakTime ? classes.PomodoroBreak : classes.Pomodoro
+				}
+			>
 				<header>Pomodoro Clock</header>
 				<div>
 					<BreakComponent
 						clicked={this.updateBreakAndFocusTime}
 						breakTime={this.state.breakTime}
+						breakStatus={this.state.isBreakTime}
 					/>
 					<FocusComponent
 						clicked={this.updateBreakAndFocusTime}
@@ -131,6 +135,7 @@ class Pomodoro extends Component {
 					startTimer={this.runningTimer}
 					displayTime={this.state.displayTime}
 					reset={this.resetTimer}
+					breakTime={this.state.isBreakTime}
 				/>
 				<SoundComponent alarm={this.state.alarmSound} />
 				<InfoComponent

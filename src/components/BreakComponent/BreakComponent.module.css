@@ -32,18 +32,14 @@
 	border: none;
 	font-size: 1.8rem;
 	background: transparent;
+	color: inherit;
 }
 .Break button:hover {
-	color: #25ccf7;
+	color: #d1d8e0;
 	transition: 0.3s ease-in;
 }
 .Break p {
 	padding: 0 1rem;
-}
-
-.sessionIcons {
-	size: 2rem;
-	color: blue;
 }
 
 @media (max-width: 540px) {
