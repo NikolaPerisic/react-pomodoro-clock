@@ -2,7 +2,7 @@
 	"name": "pomodoro-clock",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://github.com/NikolaPerisic/react-pomodoro-clock",
+	"homepage": "https://nikolaperisic.github.io/react-pomodoro-clock/",
 	"dependencies": {
 		"gh-pages": "^2.0.1",
 		"react": "^16.8.1",
@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"predeploy": "yarn run build",
+		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
