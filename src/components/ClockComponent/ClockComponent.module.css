@@ -10,8 +10,20 @@
 }
 
 .Clock {
-	color: blue;
+	color: #25ccf7;
 	font-size: 5rem;
+	width: 300px;
+	height: 300px;
+	transition: all 0.1s ease-in-out;
+	transform-origin: center center;
+}
+.Circle::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 50%;
 }
 
 button {
@@ -21,6 +33,10 @@ button {
 	border: none;
 	display: inline-block;
 	cursor: pointer;
+}
+button:hover {
+	color: #25ccf7;
+	transition: 0.3s ease-in;
 }
 
 @media (max-width: 540px) {

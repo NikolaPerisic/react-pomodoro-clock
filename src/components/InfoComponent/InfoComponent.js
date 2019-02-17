@@ -6,9 +6,9 @@ const info = props => {
 	let info = "Please click start button";
 	stateRunning
 		? breakStatus
-			? (info = "Break Session has begun!")
-			: (info = "Focus Session has begun!")
-		: (info = "Click on the start/stop button to start/continue your session");
+			? (info = "Break Session")
+			: (info = "Focus Session")
+		: (info = "Click play/pause to start/continue your session");
 	return (
 		<div className={classes.Info}>
 			<p>{info}</p>

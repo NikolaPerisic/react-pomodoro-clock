@@ -1,19 +1,20 @@
+/*#2ecc71*/
 body {
-	background-color: antiquewhite;
+	background-color: #232323;
 }
 
 .Pomodoro {
-	margin: auto;
+	margin-top: 3rem;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	height: 100%;
+	color: white;
 }
 .Pomodoro header {
 	text-align: center;
 	height: 20% vh;
-	background-color: yellow;
 	font-size: 3rem;
 	width: 100%;
 }

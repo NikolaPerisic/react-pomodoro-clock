@@ -23,13 +23,19 @@
 	align-items: stretch;
 }
 .Break button {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 	width: 70px;
 	outline: none;
 	border: none;
 	font-size: 1.8rem;
 	background: transparent;
+}
+.Break button:hover {
+	color: #25ccf7;
+	transition: 0.3s ease-in;
 }
 .Break p {
 	padding: 0 1rem;
