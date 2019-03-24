@@ -1,61 +1,61 @@
 .Wrapper {
-	display: inline-flex;
-	padding: 2rem;
+    display: inline-flex;
+    padding: 2rem;
 }
 
 .MainDiv {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	background-color: transparent;
-	width: 200px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: transparent;
+    width: 200px;
 }
 .MainDiv p {
-	font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .Break {
-	display: flex;
-	flex-flow: row;
-	justify-content: space-between;
-	align-items: stretch;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: stretch;
 }
 .Break button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	width: 70px;
-	outline: none;
-	border: none;
-	font-size: 1.8rem;
-	background: transparent;
-	color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 70px;
+    outline: none;
+    border: none;
+    font-size: 1.8rem;
+    background: transparent;
+    color: inherit;
 }
 .Break button:hover {
-	color: #d1d8e0;
-	transition: 0.3s ease-in;
+    color: #d1d8e0;
+    transition: 0.3s ease-in;
 }
 .Break p {
-	padding: 0 1rem;
+    padding: 0 1rem;
 }
 
 @media (max-width: 540px) {
-	.Wrapper,
-	.Break p {
-		padding: 0;
-	}
-	.MainDiv {
-		width: 100px;
-		padding: 1rem;
-	}
-	.MainDiv p {
-		font-size: 1rem;
-	}
-	.Break button {
-		width: 70px;
-		font-size: 1.5rem;
-	}
+    .Wrapper,
+    .Break p {
+        padding: 0;
+    }
+    .MainDiv {
+        width: 100px;
+        padding: 1rem;
+    }
+    .MainDiv p {
+        font-size: 1rem;
+    }
+    .Break button {
+        width: 70px;
+        font-size: 1.5rem;
+    }
 }

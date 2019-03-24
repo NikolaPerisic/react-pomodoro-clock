@@ -1,35 +1,35 @@
 /*#2ecc71*/
 
 .Pomodoro {
-	text-align: center;
-	height: 100%;
-	width: 100%;
-	position: fixed;
-	color: white;
-	background-color: #232323;
-	transition: background-color 1000ms linear;
-	overflow: auto;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: white;
+    background-color: #232323;
+    transition: background-color 1000ms linear;
+    overflow: auto;
 }
 header {
-	text-align: center;
-	margin-top: 3rem;
-	font-size: 3rem;
-	width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 3rem;
+    width: 100%;
 }
 
 @media (max-width: 540px) {
-	header {
-		font-size: 1.8rem;
-	}
+    header {
+        font-size: 1.8rem;
+    }
 }
 
 .PomodoroBreak {
-	text-align: center;
-	height: 100%;
-	width: 100%;
-	position: fixed;
-	color: #3d3d3d;
-	background-color: #2ecc71;
-	overflow: auto;
-	transition: background-color 1000ms linear;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: #3d3d3d;
+    background-color: #2ecc71;
+    overflow: auto;
+    transition: background-color 1000ms linear;
 }
